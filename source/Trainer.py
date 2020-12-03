@@ -130,10 +130,7 @@ class Tester(object):
 
     def test(self, model, valid_ds, mode):
         model.eval()
-        if "test" in mode:
-            test_batch = valid_ds.nbatches  # 20
-        else:
-            test_batch = 20
+        test_batch = valid_ds.nbatches  # 20
         config = self.config
         pbar = pb.ProgressBar(widgets=["eval %s|" % mode, pb.Percentage(), pb.Bar(), pb.ETA()], maxval=test_batch)
         pbar.start()
